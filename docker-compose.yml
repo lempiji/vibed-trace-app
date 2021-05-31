@@ -1,0 +1,15 @@
+version: '3'
+services:
+    web:
+        build: "./web"
+        image: "web:dev"
+        ports:
+            - "8080:80"
+        environment:
+            - WEATHER_SERVUCE=http://weather-service
+
+    weather-service: 
+        build: "./services/weather"
+        image: "weather-service:dev"
+        ports:
+            - "30000:80"

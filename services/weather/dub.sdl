@@ -1,0 +1,21 @@
+name "app-server"
+description "weather service"
+authors "lempiji"
+copyright "Copyright © 2021, lempiji"
+
+dependency "vibe-d" version="~>0.9.3"
+dependency "vibe-d:tls" version="*"
+subConfiguration "vibe-d:tls" "openssl-1.1"
+
+targetPath "bin"
+targetType "executable"
+
+configuration "default" {
+    targetType "executable"
+}
+configuration "VERSION_2" {
+    versions "VERSION_2"
+}
+configuration "VERSION_3" {
+    versions "VERSION_3"
+}
