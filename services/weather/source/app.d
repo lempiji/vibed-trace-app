@@ -136,6 +136,9 @@ void forwardHeaders(scope const InetHeaderMap req, scope InetHeaderMap clientReq
 
         // gRPC binary trace context
         "grpc-trace-bin",
+
+        // AWS X-Ray
+        "X-AMZN-TRACE-ID",
     ];
     // dfmt on
 
