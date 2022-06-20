@@ -1,4 +1,4 @@
-FROM alpine AS build
+FROM alpine:3.16 AS build
 WORKDIR /tmp
 
 RUN apk update && \
@@ -19,7 +19,7 @@ WORKDIR /tmp
 COPY ./client /tmp
 RUN npm i && npm run build
 
-FROM alpine
+FROM alpine:3.16
 WORKDIR /app
 
 RUN apk update && \
