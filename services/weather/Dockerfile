@@ -8,9 +8,14 @@ RUN apk update && \
 COPY ./dub.selections.json /tmp
 RUN dub run fetch-selections
 
-COPY . /tmp
+
+COPY ./dub.sdl /tmp
 
 ARG BUILD_MODE=release
+RUN dub build --build=${BUILD_MODE} --config=deps-only --parallel
+
+COPY . /tmp
+
 ARG BUILD_CONFIG=default
 RUN dub build --build=${BUILD_MODE} --config=${BUILD_CONFIG} --parallel
 
